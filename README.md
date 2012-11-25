@@ -1,7 +1,7 @@
 CKEditor Insert &lt;pre&gt; Plugin
 ===============================
 
-This plugin makes it easier to insert and &lt;pre&gt; tag in CKEditor.
+This plugin makes it easier to insert a &lt;pre&gt; tag in CKEditor.
 
 Installation
 ------------
