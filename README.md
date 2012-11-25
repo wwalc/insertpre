@@ -1,7 +1,7 @@
-CKEditor Insert <pre> Plugin
+CKEditor Insert &lt;pre&gt; Plugin
 ===============================
 
-This plugin makes it easier to insert and <pre> tag in CKEditor.
+This plugin makes it easier to insert and &lt;pre&gt; tag in CKEditor.
 
 Installation
 ------------
@@ -13,11 +13,11 @@ Installation
 
 That's all. "InsertPre" button will appear on the editor toolbar and will be ready to use.
 
-3. Optionally, you may specify which class should be added to the <pre> element:
+3. Optionally, you may specify which class should be added to the &lt;pre&gt; element:
 
         CKEDITOR.config.insertpre_class = 'prettyprint';
 
-   As well as specify how the <pre> tag should be rendered inside CKEditor:
+   As well as specify how the &lt;pre&gt; tag should be rendered inside CKEditor:
    
 		CKEDITOR.config.insertpre_style = 'background-color:#F8F8F8;border:1px solid #DDD;padding:10px;';
 
