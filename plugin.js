@@ -22,13 +22,13 @@ CKEDITOR.plugins.add( 'insertpre',
 		init : function( editor )
 		{
 			editor.addCommand( 'insertpre', new CKEDITOR.dialogCommand( 'insertpre' ) );
-			editor.ui.addButton( 'InsertPre',
+			editor.ui.addButton && editor.ui.addButton( 'InsertPre',
 				{
 					label : editor.lang.insertpre.title,
 					icon : this.path + 'icons/insertpre.png',
-					command : 'insertpre'
+					command : 'insertpre',
+					toolbar: 'insert,99'
 				} );
-
 
 			if ( editor.contextMenu )
 			{
