@@ -52,7 +52,6 @@ CKEDITOR.plugins.add( 'insertpre',
 
 			CKEDITOR.dialog.add( 'insertpre', function( editor )
 			{
-				console.log(editor.lang);
 				return {
 					title : editor.lang.insertpre.title,
 					minWidth : 540,
@@ -72,9 +71,13 @@ CKEDITOR.plugins.add( 'insertpre',
 									required : true,
 									setup : function( element )
 									{
-										var div = document.createElement( 'div' );
-										div.innerHTML = element.getHtml();
-										this.setValue( div.firstChild.nodeValue );
+										var html = element.getHtml();
+										if ( html )
+										{
+											var div = document.createElement( 'div' );
+											div.innerHTML = html;
+											this.setValue( div.firstChild.nodeValue );
+										}
 									},
 									commit : function( element )
 									{
