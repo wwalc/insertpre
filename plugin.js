@@ -21,7 +21,12 @@ CKEDITOR.plugins.add( 'insertpre',
 		},
 		init : function( editor )
 		{
-			editor.addCommand( 'insertpre', new CKEDITOR.dialogCommand( 'insertpre' ) );
+			// allowed and required content is the same for this plugin
+			var required = CKEDITOR.config.insertpre_class ? ( 'pre( ' + CKEDITOR.config.insertpre_class + ' )' ) : 'pre';
+			editor.addCommand( 'insertpre', new CKEDITOR.dialogCommand( 'insertpre', {
+				allowedContent : required,
+				requiredContent : required
+			} ) );
 			editor.ui.addButton && editor.ui.addButton( 'InsertPre',
 				{
 					label : editor.lang.insertpre.title,
