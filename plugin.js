@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2003-2012, CKSource - Frederico Knabben. All rights reserved.
+ Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
  For licensing, see LICENSE.html or http://ckeditor.com/license
  */
 
@@ -21,7 +21,7 @@ CKEDITOR.plugins.add( 'insertpre',
 		},
 		init : function( editor )
 		{
-			// allowed and required content is the same for this plugin
+			// Allowed and required content is the same for this plugin.
 			var required = CKEDITOR.config.insertpre_class ? ( 'pre( ' + CKEDITOR.config.insertpre_class + ' )' ) : 'pre';
 			editor.addCommand( 'insertpre', new CKEDITOR.dialogCommand( 'insertpre', {
 				allowedContent : required,
