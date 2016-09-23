@@ -67,6 +67,37 @@ CKEDITOR.plugins.add( 'insertpre',
 							label : editor.lang.insertpre.code,
 							elements : [
 								{
+									type: 'select',
+									id: 'language',
+									label: editor.lang.insertpre.lang,
+									items: [['default'], ['bsh'], ['c'], ['cc'], ['py'], ['cpp'], ['cs'], ['csh'], ['cyc'],
+											['cv'], ['htm'], ['html'], ['java'], ['js'], ['m'], ['mxml'], ['perl'],
+											['pl'], ['pm'], ['py'], ['rb'], ['sh'], ['xhtml'], ['xml'], ['xsl']],
+									'default': 'default',
+									setup : function ( element ) {
+										var classes = element.getAttribute('class');
+										var classesList = classes.split(" ");
+										for (var i = 0; i < classesList.length; ++i)
+										{
+											if (classesList[i].indexOf('lang-') >= 0)
+											{
+												var lang = classesList[i].substr(5);
+												this.setValue(lang);
+											}
+										}
+									}
+								},
+								{
+									type: 'checkbox',
+									id: 'linenums',
+									label: editor.lang.insertpre.linenums,
+									'default': '',
+									setup : function( element ) {
+										if (element.getAttribute('class').indexOf('linenums') >= 0)
+											this.setValue( true );
+									}
+								},
+								{
 									type : 'textarea',
 									id : 'contents',
 									label : editor.lang.insertpre.code,
@@ -112,8 +143,20 @@ CKEDITOR.plugins.add( 'insertpre',
 					},
 					onOk : function()
 					{
+						var lang = this.getValueOf('general', 'language');
+						var linenums = this.getValueOf('general', 'linenums')
+						var classes = '';
+
 						if ( editor.config.insertpre_class )
-							this.pre.setAttribute( 'class', editor.config.insertpre_class );
+							classes += editor.config.insertpre_class;
+
+						if (lang != 'default')
+							classes += ' lang-' + lang;
+
+						if ( linenums )
+							classes += ' linenums';
+
+						this.pre.setAttribute( 'class', classes);
 
 						if ( this.insertMode )
 							editor.insertElement( this.pre );
