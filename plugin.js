@@ -6,7 +6,7 @@
 CKEDITOR.plugins.add( 'insertpre',
 	{
 		requires: 'dialog',
-		lang : 'en,pl', // %REMOVE_LINE_CORE%
+		lang : 'en,pl,uk', // %REMOVE_LINE_CORE%
 		icons: 'insertpre', // %REMOVE_LINE_CORE%
 		onLoad : function()
 		{
